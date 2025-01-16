@@ -1,5 +1,5 @@
 import React from "react";
-import eaiImage from "../../assets/Eai.jpg"; // Importing the image
+import eaiImage from "../../assets/Eai.jpeg"; // Importing the image
 
 export function BharatEntrepreneursSummit() {
   return (

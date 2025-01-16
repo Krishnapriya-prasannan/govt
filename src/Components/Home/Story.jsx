@@ -1,6 +1,6 @@
 import React from "react";
 import story1 from "../../assets/story1.webp";
-import story2 from "../../assets/story2.jpg";
+import story2 from "../../assets/story2.webp";
 import arrow from "../../assets/arrow.png"; // Importing the arrow image
 
 export function Story() {
