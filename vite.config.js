@@ -8,4 +8,7 @@ export default defineConfig({
     host: true, // Enables external network access or sets 'localhost' explicitly
     port: 5173, // Default port (change if needed)
   },
+  css: {
+    postcss: './postcss.config.cjs', // Ensure this points to your PostCSS config
+  },
 });
