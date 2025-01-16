@@ -13,35 +13,35 @@ const Hero = () => {
         <img
           src={modijiImage}
           alt="Modiji"
-          className="w-full h-auto max-h-[calc(100vh-60px)] object-cover"
+          className="w-full h-auto max-h-[calc(100vh-50px)] object-cover" 
         />
       </div>
 
       {/* Logo Section */}
-      <div className="bg-white py-1">
+      <div className="bg-white py-6"> {/* Added padding for spacing */}
         <div className="container mx-auto px-4">
-          {/* Flex Container for Logos - Use Grid for Mobile */}
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4">
+          {/* Grid Layout for Logos with responsive design */}
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-4">
             {/* Larger EPR Image */}
             <img
               src={bharat}
               alt="Bharat"
-              className="h-24 object-contain sm:h-32 md:h-40 lg:h-48 w-full max-w-[100%]"
+              className="h-20 object-contain sm:h-20 md:h-28 lg:h-32 w-full max-w-[100%]"
             />
             <img
               src={g20}
               alt="G20"
-              className="h-24 object-contain sm:h-32 md:h-40 lg:h-48 w-full max-w-[100%]"
+              className="h-20 object-contain sm:h-20 md:h-28 lg:h-32 w-full max-w-[100%]"
             />
             <img
               src={msme}
               alt="MSME"
-              className="h-24 object-contain sm:h-32 md:h-40 lg:h-48 w-full max-w-[100%]"
+              className="h-20 object-contain sm:h-20 md:h-28 lg:h-32 w-full max-w-[100%]"
             />
             <img
               src={zed}
               alt="ZED"
-              className="h-24 object-contain sm:h-32 md:h-40 lg:h-48 w-full max-w-[100%]"
+              className="h-20 object-contain sm:h-20 md:h-28 lg:h-32 w-full max-w-[100%]"
             />
           </div>
         </div>
