@@ -8,14 +8,14 @@ import bharat from "../../assets/bharat.jpeg";
 const Hero = () => {
   return (
     <section className="bg-white">
-      {/* Hero Image */}
-      <div className="w-full">
+           <div className="w-full">
         <img
           src={modijiImage}
           alt="Modiji"
-          className="w-full h-auto max-h-[calc(100vh-50px)] object-cover" 
+          className="w-full h-auto max-h-[calc(100vh-20px)] sm:max-h-[calc(100vh-60px)] object-cover" 
         />
       </div>
+
 
       {/* Logo Section */}
       <div className="bg-white py-6"> {/* Added padding for spacing */}
