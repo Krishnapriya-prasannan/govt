@@ -13,35 +13,35 @@ const Hero = () => {
         <img
           src={modijiImage}
           alt="Modiji"
-          className="w-full h-auto max-h-[calc(100vh-60px)] object-cover"
+          className="w-full h-auto max-h-[calc(100vh-50px)] object-cover" // Increased the height a bit
         />
       </div>
 
       {/* Logo Section */}
       <div className="bg-white py-1">
         <div className="container mx-auto px-4">
-          {/* Flex Container for Logos */}
-          <div className="flex justify-between items-center w-full">
+          {/* Flex Container for Logos with a smaller height for mobile */}
+          <div className="flex justify-between items-center w-full h-24 sm:h-32 md:h-40 lg:h-48">
             {/* Larger EPR Image */}
             <img
               src={bharat}
               alt="Bharat"
-              className="h-32 object-contain sm:h-40 md:h-48 lg:h-56 w-full max-w-[25%]"
+              className="h-12 sm:h-16 md:h-20 lg:h-24 object-contain w-full max-w-[25%]"
             />
             <img
               src={g20}
               alt="G20"
-              className="h-24 object-contain sm:h-32 md:h-40 lg:h-48 w-full max-w-[25%]"
+              className="h-12 sm:h-16 md:h-20 lg:h-24 object-contain w-full max-w-[25%]"
             />
             <img
               src={msme}
               alt="MSME"
-              className="h-24 object-contain sm:h-32 md:h-40 lg:h-48 w-full max-w-[25%]"
+              className="h-12 sm:h-16 md:h-20 lg:h-24 object-contain w-full max-w-[25%]"
             />
             <img
               src={zed}
               alt="ZED"
-              className="h-24 object-contain sm:h-32 md:h-40 lg:h-48 w-full max-w-[25%]"
+              className="h-12 sm:h-16 md:h-20 lg:h-24 object-contain w-full max-w-[25%]"
             />
           </div>
         </div>
