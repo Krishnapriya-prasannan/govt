@@ -16,9 +16,7 @@ export function MissionVision() {
             />
             <h3 className="text-3xl font-bold">Our Mission</h3> {/* Increased heading size */}
             <p className="text-lg mt-4"> {/* Increased paragraph size */}
-              Our mission is to empower the workforce, providing opportunities
-              for sustainable growth and fostering economic development across
-              India.
+            The Indian Labour Cooperative Society Ltd. aims to provide a collective voice to workers, ensuring they receive fair treatment and opportunities for growth. We believe in the power of unity and cooperation to bring about positive change in the labor sector
             </p>
           </div>
 
@@ -31,9 +29,7 @@ export function MissionVision() {
             />
             <h3 className="text-3xl font-bold">Our Vision</h3> {/* Increased heading size */}
             <p className="text-lg mt-4"> {/* Increased paragraph size */}
-              Our vision is to create a future where every worker has access to
-              opportunities for advancement, well-being, and a higher quality of
-              life.
+            The Indian Labour Cooperative Society Ltd. aims to provide a collective voice to workers, ensuring they receive fair treatment and opportunities for growth. We believe in the power of unity and cooperation to bring about positive change in the labor sector
             </p>
           </div>
         </div>
