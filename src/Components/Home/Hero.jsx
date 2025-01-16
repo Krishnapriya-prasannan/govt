@@ -3,7 +3,7 @@ import modijiImage from "../../assets/modiji.jpg";
 import msme from "../../assets/msme-logo.png";
 import g20 from "../../assets/G20.png";
 import zed from "../../assets/zed-logo.png";
-import bharat from "../../assets/epr.png";
+import bharat from "../../assets/bharat.jpeg";
 
 const Hero = () => {
   return (
