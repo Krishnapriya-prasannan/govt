@@ -18,7 +18,7 @@ const Hero = () => {
       </div>
 
       {/* Logo Section */}
-      <div className="bg-white py-4">
+      <div className="bg-white py-1">
         <div className="container mx-auto px-4">
           {/* Flex Container for Logos */}
           <div className="flex justify-between items-center w-full">

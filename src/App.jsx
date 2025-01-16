@@ -6,6 +6,7 @@ import { MissionVision } from "./Components/Home/mission";
 import { Certification } from "./Components/Home/Certification";
 import { BharatEntrepreneursSummit } from "./Components/Home/Book";
 import { EmpoweringLabourForm } from "./Components/Home/Submit";
+import Footer from "./Components/Home/Footer";
 function App() {
   return (
     <div>
@@ -17,6 +18,7 @@ function App() {
         <Certification/>
         <BharatEntrepreneursSummit/>
         <EmpoweringLabourForm/>
+        <Footer/>
       </main>
     </div>
   );
