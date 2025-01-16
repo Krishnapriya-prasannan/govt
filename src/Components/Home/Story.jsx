@@ -55,16 +55,17 @@ export function Story() {
           </div>
 
           {/* Images Section */}
-          <div className="flex flex-col justify-end items-end gap-6">
+          <div className="flex flex-col justify-end items-end gap-6 sm:flex-col sm:items-end sm:justify-end">
+            {/* Images will take full width and be of equal size on mobile */}
             <img
               src={story1}
               alt="Workers in factory"
-              className="w-[80%] h-56 sm:h-64 object-cover"
+              className="w-full sm:w-[80%] h-56 sm:h-64 object-cover"
             />
             <img
               src={story2}
               alt="Workers in field"
-              className="w-[90%] h-64 sm:h-72 object-cover"
+              className="w-full sm:w-[90%] h-64 sm:h-72 object-cover"
             />
           </div>
         </div>
