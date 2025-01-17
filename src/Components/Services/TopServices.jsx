@@ -1,50 +1,127 @@
 import React from "react";
+import { motion } from "framer-motion";
 import rightArrowImage from "../../assets/Group27.png"; // Right yellow wavy arrow image
 import gearIcon from "../../assets/g.png"; // Gear icon
 
 const TopServices = () => {
+  // Animation Variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const floating = {
+    animate: {
+      y: [0, -15, 0],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
-    <div className="bg-[#f9eede] py-16 px-4">
+    <motion.div
+      className="bg-[#f9eede] py-16 px-4"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={staggerContainer}
+    >
       {/* Top Section */}
       <div className="relative max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#0d4837] mb-6 relative z-10">
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold text-[#0d4837] mb-6 relative z-10"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
           Top-Services
-        </h2>
-        <p className="text-lg md:text-xl text-[#0d4837] relative z-10 mx-4 md:mx-12 lg:mx-20 leading-relaxed">
+        </motion.h2>
+        <motion.p
+          className="text-lg md:text-xl text-[#0d4837] relative z-10 mx-4 md:mx-12 lg:mx-20 leading-relaxed"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           From consulting and strategy development to implementation and
           support, our comprehensive services can help your business thrive.
-        </p>
+        </motion.p>
 
         {/* Left and Right Wavy Arrows */}
-        <div className="absolute left-0 top-8 md:top-6 lg:-left-20 z-0 hidden md:block">
+        <motion.div
+          className="absolute left-0 top-8 md:top-6 lg:-left-20 z-0 hidden md:block"
+          variants={floating}
+        >
           <img
             src={rightArrowImage}
             alt="Left Wavy Arrow"
             className="w-40 sm:w-48 md:w-56 lg:w-72 xl:w-80 transform -scale-x-100"
           />
-        </div>
-        <div className="absolute right-0 top-8 md:top-6 lg:-right-20 z-0 hidden md:block">
+        </motion.div>
+        <motion.div
+          className="absolute right-0 top-8 md:top-6 lg:-right-20 z-0 hidden md:block"
+          variants={floating}
+        >
           <img
             src={rightArrowImage}
             alt="Right Wavy Arrow"
             className="w-40 sm:w-48 md:w-56 lg:w-72 xl:w-80"
           />
-        </div>
+        </motion.div>
       </div>
 
       {/* Cards Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 mt-16 max-w-7xl mx-auto">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 mt-16 max-w-7xl mx-auto"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {/* Card Template */}
         {Array.from({ length: 6 }).map((_, index) => (
-          <div
+          <motion.div
             key={index}
             className="bg-white shadow-lg rounded-lg p-8 pt-14 mb-10 relative text-center border border-gray-200"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
           >
             {/* Icon */}
             <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
-              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center shadow-md border border-yellow-500">
+              <motion.div
+                className="bg-white w-20 h-20 rounded-full flex items-center justify-center shadow-md border border-yellow-500"
+                whileHover={{
+                  scale: 1.2,
+                  rotate: 10,
+                }}
+                transition={{ duration: 0.3 }}
+              >
                 <img src={gearIcon} alt="Service Icon" className="w-14 h-14" />
-              </div>
+              </motion.div>
             </div>
 
             {/* Title */}
@@ -61,13 +138,20 @@ const TopServices = () => {
             </p>
 
             {/* Button */}
-            <button className="bg-[#f5911c] text-white py-3 px-6 md:px-8 rounded-md hover:bg-[#e58719] transition">
+            <motion.button
+              className="bg-[#f5911c] text-white py-3 px-6 md:px-8 rounded-md hover:bg-[#e58719] transition"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.2)",
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
               Book Now
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

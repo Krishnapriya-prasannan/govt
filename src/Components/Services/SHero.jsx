@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import birdImage from "../../assets/e.png"; // Crow image
 import cityLineImage from "../../assets/d2.png"; // Cityline image
 import workersImage from "../../assets/w2.png"; // Workers image
@@ -17,38 +18,74 @@ const ServiceBanner = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             {/* Left Section - Text */}
             <div className="lg:w-1/2 text-left text-center lg:text-left">
-              <h1 className="text-3xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              <motion.h1
+                className="text-3xl lg:text-5xl font-bold text-white mb-4 leading-tight"
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+              >
                 Explore Our <span className="capitalize">Top-Notch</span> Services
-              </h1>
-              <p className="text-base lg:text-lg text-white mb-6">
+              </motion.h1>
+              <motion.p
+                className="text-base lg:text-lg text-white mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
                 From consulting and strategy development to implementation and
                 support, our comprehensive services can help your business thrive.
-              </p>
-              <button className="bg-[#d0261a] hover:bg-[#c0201a] text-white font-bold py-3 px-8 rounded-md text-lg mb-6 lg:mb-0">
-                Call Now
-              </button>
+              </motion.p>
+              {/* Call Now Button with Hover Effect */}
+              <motion.button
+  className="bg-[#d0261a] text-white font-bold py-3 px-6 md:px-8 rounded-md text-lg mb-6 lg:mb-0 transition-all duration-300 ease-in-out"
+  whileHover={{
+    scale: 1.05,
+    boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.2)",
+  }}
+  whileTap={{ scale: 0.95 }}
+>
+  Call Now
+</motion.button>
+
 
               {/* Crow Images for Mobile */}
               <div className="flex lg:hidden justify-center items-center space-x-4">
-                <img
+                <motion.img
                   src={birdImage}
                   alt="Crow 1"
                   className="w-16 h-16 max-w-full h-auto"
+                  animate={{
+                    y: ["-20px", "20px", "-20px"], // Floating effect
+                    transition: {
+                      y: {
+                        repeat: Infinity,
+                        duration: 2,
+                        ease: "easeInOut",
+                      },
+                    },
+                  }}
                 />
-                <img
+                <motion.img
                   src={birdImage}
                   alt="Crow 2"
                   className="w-12 h-12 max-w-full h-auto"
+                  animate={{
+                    y: ["-15px", "15px", "-15px"], // Floating effect
+                    transition: {
+                      y: {
+                        repeat: Infinity,
+                        duration: 2.5,
+                        ease: "easeInOut",
+                      },
+                    },
+                  }}
                 />
               </div>
             </div>
 
-            {/* Right Section - Worker Image */}
+            {/* Right Section - Worker Image (Static) */}
             <div className="lg:w-1/2 relative h-full flex justify-center items-end -bottom-[20px] overflow-hidden">
-              <div
-                className="relative h-full"
-                style={{ height: "100%" }}
-              >
+              <div className="relative h-full">
                 <img
                   src={workersImage}
                   alt="Workers"
@@ -61,21 +98,41 @@ const ServiceBanner = () => {
             </div>
           </div>
 
-          {/* Crow Images for Larger Screens */}
+          {/* Floating Crow Images for Desktop */}
           <div className="hidden lg:flex absolute top-4 left-80 space-x-16">
-            <img
+            <motion.img
               src={birdImage}
               alt="Crow 1"
               className="w-24 h-24 max-w-full h-auto"
+              animate={{
+                y: ["-30px", "30px", "-30px"], // Floating effect for desktop
+                transition: {
+                  y: {
+                    repeat: Infinity,
+                    duration: 3,
+                    ease: "easeInOut",
+                  },
+                },
+              }}
             />
-            <img
+            <motion.img
               src={birdImage}
               alt="Crow 2"
               className="w-16 h-16 max-w-full h-auto"
+              animate={{
+                y: ["-20px", "20px", "-20px"], // Floating effect for desktop
+                transition: {
+                  y: {
+                    repeat: Infinity,
+                    duration: 3.5,
+                    ease: "easeInOut",
+                  },
+                },
+              }}
             />
           </div>
 
-          {/* Cityline Images */}
+          {/* Static Cityline Images */}
           <div className="absolute bottom-[0px] left-0 w-full z-10 flex">
             {/* First City Line Image */}
             <img
@@ -103,30 +160,28 @@ const ServiceBanner = () => {
 
         {/* Bottom Section - Badges */}
         <div className="flex justify-around items-center mt-16 flex-wrap gap-6">
-          <div className="flex flex-col items-center">
-            <div className="w-24 h-24 md:w-32 md:h-32 mb-2 rounded-full flex items-center justify-center">
-              <img src={badgeQuality} alt="Best Quality" className="w-20 h-20 md:w-28 md:h-28" />
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-24 h-24 md:w-32 md:h-32 mb-2 rounded-full flex items-center justify-center">
-              <img src={badgeAward} alt="Best Award" className="w-20 h-20 md:w-28 md:h-28" />
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-24 h-24 md:w-32 md:h-32 mb-2 rounded-full flex items-center justify-center">
-              <img src={badgeTrust} alt="Trust" className="w-20 h-20 md:w-28 md:h-28" />
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-24 h-24 md:w-32 md:h-32 mb-2 rounded-full flex items-center justify-center">
-              <img
-                src={badgeExperience}
-                alt="30 Years Experience"
-                className="w-20 h-20 md:w-28 md:h-28"
-              />
-            </div>
-          </div>
+          {[
+            { src: badgeQuality, alt: "Best Quality" },
+            { src: badgeAward, alt: "Best Award" },
+            { src: badgeTrust, alt: "Trust" },
+            { src: badgeExperience, alt: "30 Years Experience" },
+          ].map((badge, index) => (
+            <motion.div
+              key={index}
+              className="flex flex-col items-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+            >
+              <div className="w-24 h-24 md:w-32 md:h-32 mb-2 rounded-full flex items-center justify-center">
+                <img
+                  src={badge.src}
+                  alt={badge.alt}
+                  className="w-20 h-20 md:w-28 md:h-28"
+                />
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
