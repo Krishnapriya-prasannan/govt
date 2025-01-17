@@ -10,21 +10,6 @@ const TopServices = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 },
-  };
-
   const floating = {
     animate: {
       y: [0, -15, 0],
@@ -36,6 +21,11 @@ const TopServices = () => {
     },
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: { opacity: 1, y: 0, scale: 1 },
+  };
+
   return (
     <div className="bg-[#f9eede] py-16 px-4">
       {/* Top Section */}
@@ -44,7 +34,13 @@ const TopServices = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        variants={staggerContainer}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: { duration: 0.5 },
+          },
+        }}
       >
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-[#0d4837] mb-6 relative z-10"
@@ -85,20 +81,17 @@ const TopServices = () => {
       </motion.div>
 
       {/* Cards Section */}
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 mt-16 max-w-7xl mx-auto"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 mt-16 max-w-7xl mx-auto">
         {/* Card Template */}
         {Array.from({ length: 6 }).map((_, index) => (
           <motion.div
             key={index}
             className="bg-white shadow-lg rounded-lg p-8 pt-14 mb-10 relative text-center border border-gray-200"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }} // Animates each card when it enters the viewport
             variants={cardVariants}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             {/* Icon */}
             <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
@@ -138,7 +131,7 @@ const TopServices = () => {
             </motion.button>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
