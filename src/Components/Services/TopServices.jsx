@@ -37,32 +37,25 @@ const TopServices = () => {
   };
 
   return (
-    <motion.div
-      className="bg-[#f9eede] py-16 px-4"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={staggerContainer}
-    >
+    <div className="bg-[#f9eede] py-16 px-4">
       {/* Top Section */}
-      <div className="relative max-w-5xl mx-auto text-center">
+      <motion.div
+        className="relative max-w-5xl mx-auto text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+      >
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-[#0d4837] mb-6 relative z-10"
           variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
         >
           Top-Services
         </motion.h2>
         <motion.p
           className="text-lg md:text-xl text-[#0d4837] relative z-10 mx-4 md:mx-12 lg:mx-20 leading-relaxed"
           variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ delay: 0.2 }}
         >
           From consulting and strategy development to implementation and
           support, our comprehensive services can help your business thrive.
@@ -89,7 +82,7 @@ const TopServices = () => {
             className="w-40 sm:w-48 md:w-56 lg:w-72 xl:w-80"
           />
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Cards Section */}
       <motion.div
@@ -105,9 +98,6 @@ const TopServices = () => {
             key={index}
             className="bg-white shadow-lg rounded-lg p-8 pt-14 mb-10 relative text-center border border-gray-200"
             variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
             {/* Icon */}
@@ -132,9 +122,7 @@ const TopServices = () => {
             {/* Description */}
             <p className="text-[#0d4837] text-sm md:text-base mb-8 leading-relaxed text-justify">
               Our experienced architects provide personalized design solutions
-              that turn your dreams into reality. Our experienced architects
-              provide personalized design solutions that turn your dreams into
-              reality.
+              that turn your dreams into reality.
             </p>
 
             {/* Button */}
@@ -151,7 +139,7 @@ const TopServices = () => {
           </motion.div>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 

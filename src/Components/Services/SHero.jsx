@@ -21,7 +21,8 @@ const ServiceBanner = () => {
               <motion.h1
                 className="text-3xl lg:text-5xl font-bold text-white mb-4 leading-tight"
                 initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1 }}
               >
                 Explore Our <span className="capitalize">Top-Notch</span> Services
@@ -29,24 +30,24 @@ const ServiceBanner = () => {
               <motion.p
                 className="text-base lg:text-lg text-white mb-6"
                 initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1 }}
               >
                 From consulting and strategy development to implementation and
                 support, our comprehensive services can help your business thrive.
               </motion.p>
-              {/* Call Now Button with Hover Effect */}
+              {/* Call Now Button */}
               <motion.button
-  className="bg-[#d0261a] text-white font-bold py-3 px-6 md:px-8 rounded-md text-lg mb-6 lg:mb-0 transition-all duration-300 ease-in-out"
-  whileHover={{
-    scale: 1.05,
-    boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.2)",
-  }}
-  whileTap={{ scale: 0.95 }}
->
-  Call Now
-</motion.button>
-
+                className="bg-[#d0261a] text-white font-bold py-3 px-6 md:px-8 rounded-md text-lg mb-6 lg:mb-0 transition-all duration-300 ease-in-out relative z-10"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.2)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Call Now
+              </motion.button>
 
               {/* Crow Images for Mobile */}
               <div className="flex lg:hidden justify-center items-center space-x-4">
@@ -55,13 +56,11 @@ const ServiceBanner = () => {
                   alt="Crow 1"
                   className="w-16 h-16 max-w-full h-auto"
                   animate={{
-                    y: ["-20px", "20px", "-20px"], // Floating effect
+                    y: ["-20px", "20px", "-20px"],
                     transition: {
-                      y: {
-                        repeat: Infinity,
-                        duration: 2,
-                        ease: "easeInOut",
-                      },
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
                     },
                   }}
                 />
@@ -70,48 +69,41 @@ const ServiceBanner = () => {
                   alt="Crow 2"
                   className="w-12 h-12 max-w-full h-auto"
                   animate={{
-                    y: ["-15px", "15px", "-15px"], // Floating effect
+                    y: ["-15px", "15px", "-15px"],
                     transition: {
-                      y: {
-                        repeat: Infinity,
-                        duration: 2.5,
-                        ease: "easeInOut",
-                      },
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
                     },
                   }}
                 />
               </div>
             </div>
 
-            {/* Right Section - Worker Image (Static) */}
+            {/* Right Section - Worker Image */}
             <div className="lg:w-1/2 relative h-full flex justify-center items-end -bottom-[20px] overflow-hidden">
               <div className="relative h-full">
                 <img
                   src={workersImage}
                   alt="Workers"
                   className="rounded-lg h-full object-cover lg:ml-10 max-w-full"
-                  style={{
-                    transform: "translateY(3%)",
-                  }}
                 />
               </div>
             </div>
           </div>
 
           {/* Floating Crow Images for Desktop */}
-          <div className="hidden lg:flex absolute top-4 left-80 space-x-16">
+          <div className="hidden lg:flex absolute top-4 left-80 space-x-16 pointer-events-none">
             <motion.img
               src={birdImage}
               alt="Crow 1"
               className="w-24 h-24 max-w-full h-auto"
               animate={{
-                y: ["-30px", "30px", "-30px"], // Floating effect for desktop
+                y: ["-30px", "30px", "-30px"],
                 transition: {
-                  y: {
-                    repeat: Infinity,
-                    duration: 3,
-                    ease: "easeInOut",
-                  },
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
                 },
               }}
             />
@@ -120,13 +112,11 @@ const ServiceBanner = () => {
               alt="Crow 2"
               className="w-16 h-16 max-w-full h-auto"
               animate={{
-                y: ["-20px", "20px", "-20px"], // Floating effect for desktop
+                y: ["-20px", "20px", "-20px"],
                 transition: {
-                  y: {
-                    repeat: Infinity,
-                    duration: 3.5,
-                    ease: "easeInOut",
-                  },
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
                 },
               }}
             />
@@ -134,27 +124,8 @@ const ServiceBanner = () => {
 
           {/* Static Cityline Images */}
           <div className="absolute bottom-[0px] left-0 w-full z-10 flex">
-            {/* First City Line Image */}
-            <img
-              src={cityLineImage}
-              alt="Cityline 1"
-              className="w-1/2"
-              style={{
-                transform: "scaleY(1.0)", // Reduces the height by 50%
-                transformOrigin: "bottom", // Ensures scaling starts from the bottom
-              }}
-            />
-
-            {/* Second City Line Image */}
-            <img
-              src={cityLineImage}
-              alt="Cityline 2"
-              className="w-1/2"
-              style={{
-                transform: "scaleY(1.0)", // Matches the first image height
-                transformOrigin: "bottom", // Consistent alignment
-              }}
-            />
+            <img src={cityLineImage} alt="Cityline 1" className="w-1/2" />
+            <img src={cityLineImage} alt="Cityline 2" className="w-1/2" />
           </div>
         </div>
 
@@ -170,8 +141,9 @@ const ServiceBanner = () => {
               key={index}
               className="flex flex-col items-center"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               <div className="w-24 h-24 md:w-32 md:h-32 mb-2 rounded-full flex items-center justify-center">
                 <img
