@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion"; // Importing Framer Motion
+import { useInView } from "react-intersection-observer"; // For in-view detection
 import story1 from "../../assets/story1.webp";
 import story2 from "../../assets/story2.webp";
 import arrow from "../../assets/arrow.png"; // Importing the arrow image
@@ -12,37 +13,28 @@ export function Story() {
     { value: 30, label: "Ongoing", suffix: "+" },
   ];
 
-  // Animation variants for staggering
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3, // Apply a delay between children
-      },
-    },
-  };
-
   const fadeIn = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
-  const Counter = ({ start, end, duration, suffix }) => {
+  const Counter = ({ start, end, duration, suffix, inView }) => {
     const [value, setValue] = useState(start);
 
     useEffect(() => {
-      let startTimestamp;
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-        setValue(Math.floor(progress * (end - start) + start));
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        }
-      };
-      window.requestAnimationFrame(step);
-    }, [start, end, duration]);
+      if (inView) {
+        let startTimestamp;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
+          setValue(Math.floor(progress * (end - start) + start));
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+    }, [inView, start, end, duration]);
 
     return (
       <span>
@@ -59,7 +51,6 @@ export function Story() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }} // Trigger animation when 20% of the component is in view
-          variants={staggerContainer}
         >
           {/* Text Section */}
           <motion.div className="relative space-y-8" variants={fadeIn}>
@@ -99,23 +90,36 @@ export function Story() {
             {/* Stats Section with Counter */}
             <motion.div
               className="pl-6 grid grid-cols-2 sm:grid-cols-4 gap-6"
-              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
             >
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeIn}
-                >
-                  <div className="text-3xl font-bold text-black">
-                    <Counter start={0} end={stat.value} duration={2} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-lg text-gray-600">{stat.label}</div>
-                </motion.div>
-              ))}
+              {stats.map((stat, index) => {
+                const [ref, inView] = useInView({
+                  triggerOnce: true,
+                  threshold: 0.5, // Trigger when 50% of the element is visible
+                });
+
+                return (
+                  <motion.div
+                    key={index}
+                    className="text-center"
+                    variants={fadeIn}
+                    ref={ref}
+                  >
+                    <div className="text-3xl font-bold text-black">
+                      <Counter
+                        start={0}
+                        end={stat.value}
+                        duration={2}
+                        suffix={stat.suffix}
+                        inView={inView}
+                      />
+                    </div>
+                    <div className="text-lg text-gray-600">{stat.label}</div>
+                  </motion.div>
+                );
+              })}
             </motion.div>
           </motion.div>
 
@@ -125,7 +129,6 @@ export function Story() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainer}
           >
             <motion.img
               src={story1}
