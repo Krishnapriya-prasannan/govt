@@ -83,7 +83,7 @@ const ServiceBanner = () => {
               alt="Cityline 1"
               className="w-1/2"
               style={{
-                transform: "scaleY(1.5)", // Reduces the height by 50%
+                transform: "scaleY(1.0)", // Reduces the height by 50%
                 transformOrigin: "bottom", // Ensures scaling starts from the bottom
               }}
             />
@@ -94,7 +94,7 @@ const ServiceBanner = () => {
               alt="Cityline 2"
               className="w-1/2"
               style={{
-                transform: "scaleY(1.5)", // Matches the first image height
+                transform: "scaleY(1.0)", // Matches the first image height
                 transformOrigin: "bottom", // Consistent alignment
               }}
             />
