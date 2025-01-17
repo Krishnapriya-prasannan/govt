@@ -13,11 +13,6 @@ export function BharatEntrepreneursSummit() {
     visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: "easeInOut" } },
   };
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: "easeInOut" } },
-  };
-
   return (
     <div className="bg-[#004040] py-16 w-full">
       <div className="container mx-auto px-4">
@@ -31,7 +26,10 @@ export function BharatEntrepreneursSummit() {
           <motion.div
             className="w-full md:w-1/2 flex justify-center"
             variants={fadeInLeft}
-            whileHover={{ scale: 1.03, transition: { duration: 0.5, ease: "easeOut" } }} // Subtle scaling effect on hover
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.5, ease: "easeOut" },
+            }} // Smooth hover effect for the image
           >
             <img
               src={eaiImage}
@@ -46,37 +44,23 @@ export function BharatEntrepreneursSummit() {
             variants={fadeInRight}
           >
             <h2 className="text-3xl font-bold">Bharat Entrepreneurs Summit</h2>
-            <motion.p
-              className="mt-2 text-lg"
-              variants={fadeInUp}
-            >
+            <p className="mt-2 text-lg">
               (6th September, 2024 | Venue: NDMC Convention Centre, New Delhi)
-            </motion.p>
-            <motion.p
-              className="mt-4"
-              variants={fadeInUp}
-              style={{ transitionDelay: "0.4s" }}
-            >
+            </p>
+            <p className="mt-4">
               For any queries - Contact:{" "}
-              <a href="tel:+919821911055" className="text-yellow-300">
+              <a href="tel:+919821911055" className="text-yellow-300 hover:text-yellow-400 transition duration-300">
                 +91 98219 11055
               </a>
-            </motion.p>
+            </p>
 
             {/* Button */}
-            <motion.a
+            <a
               href="#"
-              className="mt-6 inline-block px-8 py-3 bg-red-600 text-white font-semibold rounded-full shadow-lg hover:bg-red-700 transition duration-300"
-              variants={fadeInUp}
-              style={{ transitionDelay: "0.6s" }}
-              whileHover={{
-                scale: 1.07,
-                boxShadow: "0px 8px 20px rgba(255, 0, 0, 0.4)", // Smoother shadow on hover
-                transition: { duration: 0.5, ease: "easeOut" },
-              }}
+              className="mt-6 inline-block px-8 py-3 bg-red-600 text-white font-semibold rounded-full shadow-lg hover:bg-red-700 hover:scale-105 transition-all duration-500 ease-out"
             >
               Click Here For Booking
-            </motion.a>
+            </a>
           </motion.div>
         </motion.div>
       </div>
