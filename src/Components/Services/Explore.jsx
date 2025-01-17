@@ -26,7 +26,7 @@ const ExploreWorld = () => {
         {/* Background World Map (Optional: Add your own map background) */}
         <div className="absolute inset-0 opacity-10 md:opacity-20">
           <img
-            src="/path/to/your/world-map-image.png" // Replace with your world map image
+            src="/src/assets/map2.png" // Replace with your world map image
             alt="World Map"
             className="w-full h-full object-cover"
           />
