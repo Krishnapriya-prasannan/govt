@@ -1,0 +1,74 @@
+import React from "react";
+import rightArrowImage from "../../assets/Group27.png"; // Right yellow wavy arrow image
+import gearIcon from "../../assets/g.png"; // Gear icon
+
+const TopServices = () => {
+  return (
+    <div className="bg-[#f9eede] py-16 px-4">
+      {/* Top Section */}
+      <div className="relative max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#0d4837] mb-6 relative z-10">
+          Top-Services
+        </h2>
+        <p className="text-lg md:text-xl text-[#0d4837] relative z-10 mx-4 md:mx-12 lg:mx-20 leading-relaxed">
+          From consulting and strategy development to implementation and
+          support, our comprehensive services can help your business thrive.
+        </p>
+
+        {/* Left and Right Wavy Arrows */}
+        <div className="absolute left-0 top-8 md:top-6 lg:-left-20 z-0 hidden md:block">
+          <img
+            src={rightArrowImage}
+            alt="Left Wavy Arrow"
+            className="w-40 sm:w-48 md:w-56 lg:w-72 xl:w-80 transform -scale-x-100"
+          />
+        </div>
+        <div className="absolute right-0 top-8 md:top-6 lg:-right-20 z-0 hidden md:block">
+          <img
+            src={rightArrowImage}
+            alt="Right Wavy Arrow"
+            className="w-40 sm:w-48 md:w-56 lg:w-72 xl:w-80"
+          />
+        </div>
+      </div>
+
+      {/* Cards Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 mt-16 max-w-7xl mx-auto">
+        {/* Card Template */}
+        {Array.from({ length: 6 }).map((_, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-lg rounded-lg p-8 pt-14 mb-10 relative text-center border border-gray-200"
+          >
+            {/* Icon */}
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center shadow-md border border-yellow-500">
+                <img src={gearIcon} alt="Service Icon" className="w-14 h-14" />
+              </div>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-xl md:text-2xl font-bold text-[#0d4837] mb-6 mt-8">
+              Service Name Here
+            </h3>
+
+            {/* Description */}
+            <p className="text-[#0d4837] text-sm md:text-base mb-8 leading-relaxed text-justify">
+              Our experienced architects provide personalized design solutions
+              that turn your dreams into reality. Our experienced architects
+              provide personalized design solutions that turn your dreams into
+              reality.
+            </p>
+
+            {/* Button */}
+            <button className="bg-[#f5911c] text-white py-3 px-6 md:px-8 rounded-md hover:bg-[#e58719] transition">
+              Book Now
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default TopServices;

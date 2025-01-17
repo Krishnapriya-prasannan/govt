@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+<div
+  className="absolute bottom-0 left-0 w-full z-10"
+  style={{
+    backgroundImage: `url(${cityLineImage})`,
+    backgroundSize: "100%", // Ensures full-width coverage
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    height: "50px", // Adjust height as needed
+  }}
+></div>

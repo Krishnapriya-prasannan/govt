@@ -28,7 +28,7 @@ const Navbar = () => {
           <li><a href="#" className="hover:underline">About</a></li>
           <li><a href="#" className="hover:underline">Our Projects</a></li>
           <li><a href="#" className="hover:underline">Gallery</a></li>
-          <li><a href="#" className="hover:underline">Service</a></li>
+          <li><a href="/service" className="hover:underline">Service</a></li>
           <li><a href="#" className="hover:underline">Contact</a></li>
         </ul>
       </div>

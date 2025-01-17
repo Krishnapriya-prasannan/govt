@@ -8,9 +8,15 @@ import { BharatEntrepreneursSummit } from "./Components/Home/Book";
 import { EmpoweringLabourForm } from "./Components/Home/Submit";
 import LatestNews from "./Components/Home/News";
 import Footer from "./Components/Home/Footer";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import necessary routing components
+import ServicePage from "./Components/Services/ServicePage";
+
 function App() {
   return (
-    <div>
+    <Router>
+      <Routes>
+      <Route path="/" element={
+        <div>
       <Navbar />
       <main>
         <Hero />
@@ -23,6 +29,12 @@ function App() {
         <Footer/>
       </main>
     </div>
+      }/>
+               <Route path="/service" element={<ServicePage />} />
+
+      </Routes>
+    </Router>
+    
   );
 }
 
