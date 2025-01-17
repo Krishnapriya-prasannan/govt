@@ -1,5 +1,5 @@
 import React from "react";
-
+import Map from "../../assets/map2.png";
 const ExploreWorld = () => {
   return (
     <div className="bg-[#fdeede] py-16 px-4 flex justify-center items-center">
@@ -26,7 +26,7 @@ const ExploreWorld = () => {
         {/* Background World Map (Optional: Add your own map background) */}
         <div className="absolute inset-0 opacity-10 md:opacity-20">
           <img
-            src="/src/assets/map2.png" // Replace with your world map image
+            src={Map} // Replace with your world map image
             alt="World Map"
             className="w-full h-full object-cover"
           />
