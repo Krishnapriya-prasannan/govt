@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import map from "../../assets/map2.jpeg";
 
 const SendSection = () => {
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the element is in view
+      }
+    );
+
+    // Observe the send section
+    const section = document.getElementById("send-section");
+    observer.observe(section);
+
+    return () => {
+      if (section) {
+        observer.unobserve(section); // Cleanup observer
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative bg-white py-12 lg:py-24 flex justify-center items-center top-0">
+    <section
+      id="send-section"
+      className="relative bg-white py-12 lg:py-24 flex justify-center items-center top-0"
+    >
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center px-6 lg:px-16">
         
         {/* Map & Background Container */}
-        <div className="relative w-full lg:w-1/2 flex justify-center">
+        <div
+          className={`relative w-full lg:w-1/2 flex justify-center transition-all duration-1000 ease-in-out ${
+            isInView ? "opacity-100 transform scale-105" : "opacity-0 scale-95"
+          }`}
+        >
           {/* Background Shape - Extended Top & Bottom */}
           <div className="absolute -left-6 -top-10 w-11/12 h-[110%] bg-[#1A3D5D] rounded-bl-[50px] rounded-tl-[50px] hidden lg:block"></div>
 
@@ -18,7 +51,11 @@ const SendSection = () => {
         </div>
 
         {/* Form Section */}
-        <div className="w-full lg:w-1/2 bg-white shadow-lg rounded-2xl p-8 lg:p-12 mt-8 lg:mt-0 relative z-20">
+        <div
+          className={`w-full lg:w-1/2 bg-white shadow-lg rounded-2xl p-8 lg:p-12 mt-8 lg:mt-0 relative z-20 transition-all duration-1000 ease-in-out ${
+            isInView ? "opacity-100 transform translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
             Get in <span className="text-orange-500">Touch</span>
           </h2>
@@ -38,7 +75,7 @@ const SendSection = () => {
               <input
                 type="text"
                 id="name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300 ease-in-out"
                 placeholder="Your Name"
                 required
               />
@@ -55,7 +92,7 @@ const SendSection = () => {
               <input
                 type="email"
                 id="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300 ease-in-out"
                 placeholder="Your Email"
               />
             </div>
@@ -71,7 +108,7 @@ const SendSection = () => {
               <input
                 type="tel"
                 id="phone"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300 ease-in-out"
                 placeholder="Your Phone Number"
                 required
               />
@@ -87,7 +124,7 @@ const SendSection = () => {
               </label>
               <select
                 id="find-us"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300 ease-in-out"
               >
                 <option>Google</option>
                 <option>Friends/Family</option>
