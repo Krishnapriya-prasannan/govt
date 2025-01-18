@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
-import zed from "../../assets/zed-logo.png";
+import zed from "../../assets/zed-logo.png"; // Importing the image
 
 export function Certification() {
   const fadeInLeft = {
@@ -14,10 +14,10 @@ export function Certification() {
   };
 
   return (
-    <div className="bg-white py-16 w-full">
+    <div className="bg-white py-16 w-full overflow-x-hidden"> {/* Prevent horizontal scrolling */}
       <div className="w-full px-4">
         <motion.div
-          className="grid md:grid-cols-2 gap-8 items-center w-full"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center w-full"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -31,16 +31,16 @@ export function Certification() {
             <img
               src={zed}
               alt="ZED MSME Certification"
-              className="w-full h-[20em] object-contain"
+              className="w-full h-auto max-h-[25em] object-contain"  // Ensuring responsive height
             />
           </motion.div>
 
           {/* Text Section */}
           <motion.div className="space-y-6 w-full" variants={fadeInRight}>
-            <h2 className="text-3xl font-bold text-black">
+            <h2 className="text-2xl sm:text-3xl font-bold text-black">
               Empowering MSMEs with ZED Certification – A Key Initiative by ILCS
             </h2>
-            <p className="text-black">
+            <p className="text-base sm:text-lg text-black">
               In today's competitive business landscape, Micro, Small, and
               Medium Enterprises (MSMEs) play a pivotal role in driving economic
               growth and job creation. However, to thrive in this environment,

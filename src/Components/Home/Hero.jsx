@@ -7,14 +7,27 @@ import zed from "../../assets/zed-logo.png";
 import bharat from "../../assets/bharat.jpeg";
 
 const Hero = () => {
+  // Helper function to determine animation duration based on screen size
+  const getAnimationDuration = () => {
+    if (window.innerWidth <= 640) {
+      return 1; // Faster animation for mobile devices
+    } else if (window.innerWidth <= 1024) {
+      return 1.2; // Medium animation speed for tablets
+    } else {
+      return 1.5; // Slower animation for larger screens (desktops)
+    }
+  };
+
+  const animationDuration = getAnimationDuration(); // Set animation duration dynamically
+
   return (
-    <section className="bg-white">
+    <section className="bg-white overflow-x-hidden"> {/* Prevent horizontal scroll */}
       {/* Hero Image Section */}
       <motion.div
         className="w-full"
         initial={{ opacity: 0 }} // Fade-in animation
         animate={{ opacity: 1 }} // Fully visible after animation
-        transition={{ duration: 1.5 }} // Smooth and slow animation for dignity
+        transition={{ duration: animationDuration }} // Use dynamic animation duration
       >
         <img
           src={modijiImage}
@@ -28,7 +41,7 @@ const Hero = () => {
         className="bg-white py-6"
         initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
         animate={{ opacity: 1, y: 0 }} // End at full opacity and position
-        transition={{ delay: 0.5, duration: 1 }} // Delay for a smooth sequence
+        transition={{ delay: 0.5, duration: animationDuration }} // Delay and use dynamic animation duration
       >
         <div className="container mx-auto px-4">
           {/* Grid Layout for Logos */}

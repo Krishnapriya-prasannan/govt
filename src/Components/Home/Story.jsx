@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion"; // Importing Framer Motion
+import { motion } from "framer-motion"; // Importing Framer Motion
 import { useInView } from "react-intersection-observer"; // For in-view detection
 import story1 from "../../assets/story1.webp";
 import story2 from "../../assets/story2.webp";
@@ -44,8 +44,8 @@ export function Story() {
   };
 
   return (
-    <div className="py-12 bg-white">
-      <div className="container mx-auto px-4">
+    <div className="py-12 bg-white overflow-x-hidden"> {/* Prevent horizontal scroll */}
+      <div className="container mx-auto px-4 max-w-full"> {/* Ensure max-width of the container */}
         <motion.div
           className="grid md:grid-cols-2 gap-8"
           initial="hidden"
@@ -123,24 +123,30 @@ export function Story() {
             </motion.div>
           </motion.div>
 
-          {/* Images Section */}
+          {/* Images Section with Sequential Animation */}
           <motion.div
-            className="flex flex-col justify-end items-end gap-6 sm:flex-col sm:items-end sm:justify-end"
+            className="flex flex-col justify-end items-end gap-6 sm:flex-col sm:items-center sm:justify-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.3 } }, // Sequential fade-in for children
+            }}
           >
+            {/* First image */}
             <motion.img
               src={story1}
               alt="Workers in factory"
-              className="w-full sm:w-[80%] h-56 sm:h-64 object-cover"
+              className="w-full sm:w-[80%] h-56 sm:h-64 object-cover max-w-full"
               variants={fadeIn}
               transition={{ duration: 0.8 }}
             />
+            {/* Second image with a delay */}
             <motion.img
               src={story2}
               alt="Workers in field"
-              className="w-full sm:w-[90%] h-64 sm:h-72 object-cover"
+              className="w-full sm:w-[90%] h-64 sm:h-72 object-cover max-w-full"
               variants={fadeIn}
               transition={{ duration: 0.8, delay: 0.3 }}
             />

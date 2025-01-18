@@ -56,6 +56,7 @@ export function EmpoweringLabourForm() {
                   className="w-full p-3 mt-2 text-lg rounded-md border border-gray-300 text-gray-900"
                   placeholder="Enter Your Skilled Manpower Details"
                   rows="2"
+                  aria-label="Skilled Manpower Details"
                 ></textarea>
               </motion.div>
 
@@ -68,6 +69,7 @@ export function EmpoweringLabourForm() {
                   className="w-full p-3 mt-2 text-lg rounded-md border border-gray-300 text-gray-900"
                   placeholder="Enter Your Contact Information*"
                   rows="2"
+                  aria-label="Contact Information"
                 ></textarea>
               </motion.div>
 
@@ -78,6 +80,7 @@ export function EmpoweringLabourForm() {
                   type="tel"
                   className="w-full p-3 mt-2 text-lg rounded-md border border-gray-300 text-gray-900"
                   placeholder="Your Phone Number"
+                  aria-label="Phone Number"
                 />
               </motion.div>
 
@@ -88,6 +91,7 @@ export function EmpoweringLabourForm() {
                   className="w-full p-3 mt-2 text-lg rounded-md border border-gray-300 text-gray-900"
                   placeholder="Enter Your Inquire Message..."
                   rows="3"
+                  aria-label="Message"
                 ></textarea>
               </motion.div>
 
@@ -98,7 +102,7 @@ export function EmpoweringLabourForm() {
                 custom={5}
               >
                 <button
-                  type="button"
+                  type="submit"
                   className="inline-block px-8 py-3 bg-red-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-red-700 transition duration-300"
                 >
                   Submit Your Enquiry

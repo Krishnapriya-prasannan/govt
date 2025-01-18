@@ -14,7 +14,7 @@ export function BharatEntrepreneursSummit() {
   };
 
   return (
-    <div className="bg-[#004040] py-16 w-full">
+    <div className="bg-[#004040] py-16 w-full overflow-x-hidden"> {/* Added overflow-x-hidden here */}
       <div className="container mx-auto px-4">
         <motion.div
           className="flex flex-col md:flex-row items-center justify-between gap-8"
@@ -31,25 +31,29 @@ export function BharatEntrepreneursSummit() {
               transition: { duration: 0.5, ease: "easeOut" },
             }} // Smooth hover effect for the image
           >
-            <img
+            <motion.img
               src={eaiImage}
               alt="EAI"
-              className="w-80 h-auto object-contain shadow-lg"
+              className="w-full sm:w-80 h-auto object-contain shadow-lg" // Made responsive
+              variants={fadeInLeft}
             />
           </motion.div>
 
           {/* Text Section */}
           <motion.div
-            className="w-full md:w-1/2 text-white text-center"
+            className="w-full md:w-1/2 text-white text-center md:text-left"
             variants={fadeInRight}
           >
-            <h2 className="text-3xl font-bold">Bharat Entrepreneurs Summit</h2>
-            <p className="mt-2 text-lg">
+            <h2 className="text-3xl sm:text-4xl font-bold">Bharat Entrepreneurs Summit</h2>
+            <p className="mt-2 text-lg sm:text-xl">
               (6th September, 2024 | Venue: NDMC Convention Centre, New Delhi)
             </p>
             <p className="mt-4">
               For any queries - Contact:{" "}
-              <a href="tel:+919821911055" className="text-yellow-300 hover:text-yellow-400 transition duration-300">
+              <a
+                href="tel:+919821911055"
+                className="text-yellow-300 hover:text-yellow-400 transition duration-300"
+              >
                 +91 98219 11055
               </a>
             </p>
