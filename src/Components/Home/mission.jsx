@@ -14,18 +14,18 @@ export function MissionVision() {
   };
 
   return (
-    <div className="py-12 bg-white overflow-x-hidden"> {/* Prevent horizontal scroll */}
-      <div className="container mx-auto px-4 max-w-full"> {/* Ensuring max-width of the container */}
+    <div className="py-12 bg-white">
+      <div className="container mx-auto px-4">
         {/* Wrapper for both cards */}
         <motion.div
-          className="flex flex-col sm:flex-row justify-center items-center gap-12 sm:gap-20 flex-wrap" 
+          className="flex flex-col sm:flex-row justify-center items-center gap-20"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
           {/* Mission Card */}
           <motion.div
-            className="relative bg-yellow-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-start justify-center h-[340px] sm:h-[400px] w-full sm:w-[340px] transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+            className="relative bg-yellow-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-start justify-center h-[340px] w-[340px] transform transition duration-300 hover:scale-105 hover:shadow-2xl"
             variants={cardVariants}
             whileHover={{
               scale: 1.05,
@@ -35,10 +35,10 @@ export function MissionVision() {
             <motion.img
               src={targetImage}
               alt="Target"
-              className="absolute top-[-20px] right-[-20px] w-20 sm:w-32 h-20 sm:h-32 object-cover max-w-full" 
+              className="absolute top-[-20px] right-[-20px] w-32 h-32 object-cover"
               variants={imgVariants}
             />
-            <h3 className="text-2xl sm:text-3xl font-bold">Our Mission</h3>
+            <h3 className="text-3xl font-bold">Our Mission</h3>
             <p className="text-lg mt-4">
               The Indian Labour Cooperative Society Ltd. aims to provide a
               collective voice to workers, ensuring they receive fair treatment
@@ -50,7 +50,7 @@ export function MissionVision() {
 
           {/* Vision Card */}
           <motion.div
-            className="relative bg-green-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-start justify-center h-[340px] sm:h-[400px] w-full sm:w-[340px] transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+            className="relative bg-green-500 text-white p-6 rounded-lg shadow-lg flex flex-col items-start justify-center h-[340px] w-[340px] transform transition duration-300 hover:scale-105 hover:shadow-2xl"
             variants={cardVariants}
             whileHover={{
               scale: 1.05,
@@ -60,10 +60,10 @@ export function MissionVision() {
             <motion.img
               src={targetImage}
               alt="Target"
-              className="absolute top-[-20px] right-[-20px] w-20 sm:w-32 h-20 sm:h-32 object-cover max-w-full" 
+              className="absolute top-[-20px] right-[-20px] w-32 h-32 object-cover"
               variants={imgVariants}
             />
-            <h3 className="text-2xl sm:text-3xl font-bold">Our Vision</h3>
+            <h3 className="text-3xl font-bold">Our Vision</h3>
             <p className="text-lg mt-4">
               The Indian Labour Cooperative Society Ltd. envisions a labor
               ecosystem that fosters equality, dignity, and economic security.
