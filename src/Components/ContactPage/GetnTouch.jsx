@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css"; // Import FontAwesome CS
 const ContactSection = () => {
   return (
     <section
-      className="relative w-full h-[600px] bg-cover bg-center bottom-20"
+      className="relative w-full h-[600px] bg-cover top-0 bg-center"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       {/* Glassy Shade */}
