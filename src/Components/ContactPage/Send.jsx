@@ -2,43 +2,71 @@ import React, { useEffect, useState } from "react";
 import map from "../../assets/map2.jpeg";
 
 const SendSection = () => {
-  const [isInView, setIsInView] = useState(false);
+  const [isMapInView, setIsMapInView] = useState(false);
+  const [isFormInView, setIsFormInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Create an Intersection Observer
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-        }
-      },
-      {
-        threshold: 0.5, // Trigger when 50% of the element is in view
-      }
-    );
+    // Check if the screen size is mobile
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // 768px for mobile
+    };
 
-    // Observe the send section
-    const section = document.getElementById("send-section");
-    observer.observe(section);
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Set initial state
 
     return () => {
-      if (section) {
-        observer.unobserve(section); // Cleanup observer
-      }
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
+  useEffect(() => {
+    // Intersection Observer for Map
+    const mapObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsMapInView(true);
+        }
+      },
+      {
+        threshold: isMobile ? 0.1 : 0.5, // Trigger animation when 10% is visible on mobile, 50% on larger screens
+      }
+    );
+
+    // Intersection Observer for Form
+    const formObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsFormInView(true);
+        }
+      },
+      {
+        threshold: isMobile ? 0.1 : 0.5,
+      }
+    );
+
+    // Observe the map and form sections
+    const mapSection = document.getElementById("map-section");
+    const formSection = document.getElementById("form-section");
+
+    if (mapSection) mapObserver.observe(mapSection);
+    if (formSection) formObserver.observe(formSection);
+
+    return () => {
+      if (mapSection) mapObserver.unobserve(mapSection);
+      if (formSection) formObserver.unobserve(formSection);
+    };
+  }, [isMobile]);
+
   return (
-    <section
-      id="send-section"
-      className="relative bg-white py-12 lg:py-24 flex justify-center items-center top-0"
-    >
+    <section className="relative bg-white py-12 lg:py-24 flex justify-center items-center top-0">
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center px-6 lg:px-16">
         
-        {/* Map & Background Container */}
+        {/* Map Section */}
         <div
+          id="map-section"
           className={`relative w-full lg:w-1/2 flex justify-center transition-all duration-1000 ease-in-out ${
-            isInView ? "opacity-100 transform scale-105" : "opacity-0 scale-95"
+            isMapInView ? "opacity-100 transform scale-105" : "opacity-0 scale-95"
           }`}
         >
           {/* Background Shape - Extended Top & Bottom */}
@@ -52,8 +80,9 @@ const SendSection = () => {
 
         {/* Form Section */}
         <div
+          id="form-section"
           className={`w-full lg:w-1/2 bg-white shadow-lg rounded-2xl p-8 lg:p-12 mt-8 lg:mt-0 relative z-20 transition-all duration-1000 ease-in-out ${
-            isInView ? "opacity-100 transform translate-y-0" : "opacity-0 translate-y-10"
+            isFormInView ? "opacity-100 transform translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
