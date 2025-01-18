@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import nm1 from "../../assets/nm1.jpeg"; // Import first image
 import story2 from "../../assets/story2.webp"; // Import second image
 
@@ -13,93 +13,71 @@ const newsData = [
   },
   {
     id: 2,
-    title: "Embracing Excellence through ZED - A New Chapter for ILCS",
+    title: "Empowering Indian MSMEs with Sustainability Goals",
     description:
-      "The Indian Labour Cooperative Society (ILCS) is spearheading the ZED (Zero Defect, Zero Effect) Certification project, aiming to elevate the quality and sustainability standards of Indian MSMEs. Through this initiative...",
+      "The Indian Labour Cooperative Society (ILCS) is committed to raising awareness and implementing sustainability goals for MSMEs, empowering small businesses to thrive in a competitive market.",
     image: story2,
   },
 ];
 
 const LatestNews = () => {
-  // Card fade-in and slide-up animation
+  // Smooth card animation
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 50 }, // Start off-screen and faded out
     visible: (i) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.2, // Stagger animation for each card
-        duration: 0.6,
-        ease: "easeOut", // Smooth easing
+        delay: i * 0.15, // Staggered entry for each card
+        duration: 0.6, // Smooth animation duration
+        ease: "easeInOut", // Balanced easing for smoothness
       },
     }),
   };
 
-  // Title fade-in with slight upward motion
-  const titleVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  // Description fade-in
-  const descriptionVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.2, // Slight delay for sequential appearance
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
-    <section className="py-10 px-4 md:px-10 bg-gray-50">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">
+    <section className="py-12 px-6 md:px-12 bg-gray-50">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10">
         Latest News
       </h2>
       <motion.div
-        className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto"
+        className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }} // Trigger animations when 20% of the card is visible
+        viewport={{ once: true, amount: 0.2 }} // Trigger animation when 20% of the card enters
       >
         {newsData.map((news, index) => (
           <motion.div
             key={news.id}
-            className="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 hover:shadow-lg transition-transform duration-200"
-            custom={index}
+            className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-500 hover:scale-105"
+            custom={index} // Staggered entry based on index
             variants={cardVariants}
           >
             {/* Image Section */}
-            <img
-              src={news.image}
-              alt="News"
-              className="w-full h-48 md:h-56 object-cover"
-            />
+            <div className="overflow-hidden">
+              <motion.img
+                src={news.image}
+                alt={news.title}
+                className="w-full h-64 object-cover"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              />
+            </div>
 
-            {/* Text Section */}
+            {/* Content Section */}
             <div className="p-6">
-              <motion.h3
-                className="font-semibold text-lg md:text-xl text-gray-800 mb-3"
-                variants={titleVariants}
-              >
+              <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-3">
                 {news.title}
-              </motion.h3>
-              <motion.p
-                className="text-gray-600 text-sm md:text-base leading-relaxed"
-                variants={descriptionVariants}
-              >
+              </h3>
+              <p className="text-gray-600 text-sm md:text-base mb-4 leading-relaxed">
                 {news.description}
-              </motion.p>
+              </p>
+              <a
+                href="#"
+                className="inline-block text-sm md:text-base font-medium text-blue-600 hover:underline"
+              >
+                Read More →
+              </a>
             </div>
           </motion.div>
         ))}

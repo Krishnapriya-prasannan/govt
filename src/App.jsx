@@ -10,7 +10,7 @@ import LatestNews from "./Components/Home/News";
 import Footer from "./Components/Home/Footer";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import necessary routing components
 import ServicePage from "./Components/Services/ServicePage";
-
+import ContactPage from "./Components/ContactPage/Contact";
 function App() {
   return (
     <Router>
@@ -31,6 +31,7 @@ function App() {
     </div>
       }/>
                <Route path="/service" element={<ServicePage />} />
+               <Route path="/contact" element={<ContactPage />} />
 
       </Routes>
     </Router>
