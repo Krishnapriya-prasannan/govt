@@ -5,7 +5,9 @@ import msme from "../../assets/msme-logo.png";
 import g20 from "../../assets/G20.png";
 import zed from "../../assets/zed-logo.png";
 import bharat from "../../assets/bharat.jpeg";
-
+import  mca from "../../assets/mca.svg";
+import qci from "../../assets/qci.png";
+import exp from "../../assets/30.png";
 const Hero = () => {
   // Helper function to determine animation duration based on screen size
   const getAnimationDuration = () => {
@@ -58,7 +60,7 @@ const Hero = () => {
             }}
           >
             {/* Logos */}
-            {[bharat, g20, msme, zed].map((logo, index) => (
+            {[bharat,exp, msme, zed, mca, g20, qci].map((logo, index) => (
               <motion.img
                 key={index}
                 src={logo}
