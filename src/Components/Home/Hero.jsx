@@ -6,7 +6,7 @@ import g20 from "../../assets/G20.png";
 import zed from "../../assets/zed-logo.png";
 import bharat from "../../assets/bharat.jpeg";
 import  mca from "../../assets/mca.svg";
-import qci from "../../assets/qci.png";
+import qci from "../../assets/Qci.png";
 import exp from "../../assets/30.png";
 const Hero = () => {
   // Helper function to determine animation duration based on screen size

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion"; // Importing Framer Motion
+import { motion, useAnimation } from "framer-motion"; // Importing Framer Motion
 import { useInView } from "react-intersection-observer"; // For in-view detection
 import story1 from "../../assets/story1.webp";
 import story2 from "../../assets/story2.webp";
@@ -44,8 +44,8 @@ export function Story() {
   };
 
   return (
-    <div className="py-12 bg-white overflow-x-hidden"> {/* Prevent horizontal scroll */}
-      <div className="container mx-auto px-4 max-w-full"> {/* Ensure max-width of the container */}
+    <div className="py-12 bg-white">
+      <div className="container mx-auto px-4">
         <motion.div
           className="grid md:grid-cols-2 gap-8"
           initial="hidden"
@@ -125,7 +125,7 @@ export function Story() {
 
           {/* Images Section with Sequential Animation */}
           <motion.div
-            className="flex flex-col justify-end items-end gap-6 sm:flex-col sm:items-center sm:justify-center"
+            className="flex flex-col justify-end items-end gap-6 sm:flex-col sm:items-end sm:justify-end"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -138,7 +138,7 @@ export function Story() {
             <motion.img
               src={story1}
               alt="Workers in factory"
-              className="w-full sm:w-[80%] h-56 sm:h-64 object-cover max-w-full"
+              className="w-full sm:w-[80%] h-56 sm:h-64 object-cover"
               variants={fadeIn}
               transition={{ duration: 0.8 }}
             />
@@ -146,7 +146,7 @@ export function Story() {
             <motion.img
               src={story2}
               alt="Workers in field"
-              className="w-full sm:w-[90%] h-64 sm:h-72 object-cover max-w-full"
+              className="w-full sm:w-[90%] h-64 sm:h-72 object-cover"
               variants={fadeIn}
               transition={{ duration: 0.8, delay: 0.3 }}
             />
@@ -155,4 +155,4 @@ export function Story() {
       </div>
     </div>
   );
-}
+} 
