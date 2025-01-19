@@ -10,6 +10,7 @@ import LatestNews from "./Components/Home/News";
 import Footer from "./Components/Home/Footer";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import necessary routing components
 import ServicePage from "./Components/Services/ServicePage";
+import SahkarBanner from "./Components/Home/Banner";
 import ContactPage from "./Components/ContactPage/Contact";
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <SahkarBanner/>
         <Story />
         <MissionVision/>
         <Certification/>
