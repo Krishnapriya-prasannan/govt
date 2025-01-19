@@ -28,7 +28,7 @@ const LatestNews = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.15, // Staggered entry for each card
+        delay: i * 0.2, // Staggered entry for each card, longer delay for mobile
         duration: 0.6, // Smooth animation duration
         ease: "easeInOut", // Balanced easing for smoothness
       },
@@ -41,7 +41,7 @@ const LatestNews = () => {
         Latest News
       </h2>
       <motion.div
-        className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-6xl mx-auto"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }} // Trigger animation when 20% of the card enters
