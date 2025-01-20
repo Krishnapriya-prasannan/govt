@@ -10,7 +10,7 @@ import badgeExperience from "../../assets/30.png"; // Badge 4
 
 const ServiceBanner = () => {
   return (
-    <div className="bg-[#f9eede] w-full pt-[80px]"> {/* Added padding-top to account for navbar height */}
+    <div className="bg-[#f9eede] w-full pt-[85px]"> {/* Added padding-top to account for navbar height */}
       <div className="max-w-full mx-auto py-0 px-0 relative">
         {/* Main Content */}
         <div className="py-8 px-6 bg-[#003333] rounded-lg relative overflow-visible">
@@ -38,15 +38,14 @@ const ServiceBanner = () => {
                 support, our comprehensive services can help your business thrive.
               </motion.p>
               <motion.button
-                className="bg-[#d0261a] text-white font-bold py-3 px-6 md:px-8 rounded-md text-lg mb-6 lg:mb-0 transition-all duration-300 ease-in-out relative z-10"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Call Now
-              </motion.button>
+  className="bg-[#d0261a] text-white font-bold py-3 px-6 md:px-8 rounded-md text-lg mb-6 lg:mb-0 transition-all duration-300 ease-in-out relative z-20 hover:bg-[#a01e17] hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#a01e17] focus:ring-opacity-50 pointer-events-auto"
+  whileTap={{
+    scale: 0.95, // Shrink on click
+  }}
+>
+  Call Now
+</motion.button>
+
 
               <div className="flex lg:hidden justify-center items-center space-x-4">
                 <motion.img
