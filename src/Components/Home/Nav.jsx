@@ -26,9 +26,9 @@ const Navbar = () => {
   return (
     <div className="w-full overflow-hidden mb-0">
       <nav className="bg-[#FF9D23] text-white shadow-md fixed top-0 w-full z-50">
-        <div className="container mx-auto max-w-screen-xl flex items-center justify-between px-4 py-4 md:py-5 w-full">
+        <div className="container mx-auto px-4 py-4 md:py-5 w-full flex items-center justify-between max-w-screen-xl">
           {/* Logo Section */}
-          <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 ">
             <img src={logo1} alt="Logo1" className="h-12 sm:h-14 md:h-16 lg:h-18" />
             <div className="w-[2px] h-12 sm:h-14 md:h-16 lg:h-18 bg-white"></div>
             <img src={logo2} alt="Logo2" className="h-14 sm:h-16 md:h-18 lg:h-20" />
@@ -46,7 +46,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-4 lg:space-x-6 text-sm md:text-base font-semibold">
+          <ul className="hidden md:flex space-x-4 lg:space-x-9 text-sm md:text-base font-semibold">
             <li className="relative group">
               <a href="#" className="hover:text-gray-200 transition-colors duration-200">
                 Home
