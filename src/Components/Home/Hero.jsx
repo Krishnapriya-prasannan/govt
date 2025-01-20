@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion"; 
 import modijiImage from "../../assets/modiji.jpg";
 import pic2 from "../../assets/pic2.jpg"; // New image for the slideshow
@@ -18,6 +18,9 @@ const Hero = () => {
   const images = [modijiImage, pic2];
   const logos = [bharat, exp, msme, zed, mca, sr, g20, qci];
 
+  // Reference for the slideshow container
+  const slideshowRef = useRef(null);
+
   // Adjust animation speed based on screen size
   const getAnimationDuration = () => {
     if (window.innerWidth <= 640) return 1;
@@ -27,7 +30,7 @@ const Hero = () => {
 
   const animationDuration = getAnimationDuration();
 
-  // Change the current image every 3 seconds
+  // Change the current image every 3 seconds (automatic slideshow)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -36,8 +39,23 @@ const Hero = () => {
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [images.length]);
 
+  // Handle manual scroll on click
+  const handleClick = (index) => {
+    setCurrentIndex(index);
+  };
+
+  useEffect(() => {
+    // Scroll to the current image automatically
+    if (slideshowRef.current) {
+      slideshowRef.current.scrollTo({
+        left: currentIndex * window.innerWidth, // Scroll to the specific image
+        behavior: "smooth",
+      });
+    }
+  }, [currentIndex]);
+
   return (
-    <section className="bg-white mt-[85px] sm:mt-[90px] md:mt-[100px] overflow-x-hidden lg:mb-16"> 
+    <section className="bg-white mt-[85px] sm:mt-[90px] md:mt-[100px] overflow-hidden lg:mb-16 relative h-screen"> 
       {/* Slideshow */}
       <motion.div
         className="w-full overflow-hidden"
@@ -45,25 +63,47 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: animationDuration }}
       >
-        <motion.div
-          className="flex"
+        {/* Scrollable Container with Cute Custom Green Scrollbar */}
+        <div
+          ref={slideshowRef} // Reference to scroll container
+          className="flex w-full h-full overflow-x-auto scroll-smooth"
           style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-            transition: `transform ${animationDuration}s ease`,
-            width: "100%",
+            scrollSnapType: "x mandatory",
+            scrollbarWidth: "thin", // Mozilla Firefox custom scrollbar
+            scrollbarColor: "green transparent", // Custom scrollbar color for Firefox
           }}
         >
           {images.map((image, index) => (
-            <img
+            <motion.div
               key={index}
-              src={image}
-              alt={`Slide ${index}`}
-              className="w-full h-auto max-h-[calc(100vh-100px)] sm:max-h-[calc(100vh-120px)] object-cover"
-              style={{ flexShrink: 0 }} // Prevents images from shrinking and leaving space
-            />
+              className="flex-none w-full h-auto max-h-[calc(100vh-100px)] sm:max-h-[calc(100vh-120px)] object-cover"
+              style={{ scrollSnapAlign: "start" }}
+              onClick={() => handleClick(index)}  // On click, manually change the image
+            >
+              <img
+                src={image}
+                alt={`Slide ${index}`}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
+
+      {/* Custom Horizontal Scrollbar for Webkit Browsers (Chrome, Safari) */}
+      <style jsx>{`
+        /* Custom Scrollbar Styling */
+        .flex::-webkit-scrollbar {
+          height: 8px; /* height of the scrollbar */
+        }
+        .flex::-webkit-scrollbar-thumb {
+          background-color: green; /* green color for the scrollbar */
+          border-radius: 10px; /* round edges */
+        }
+        .flex::-webkit-scrollbar-track {
+          background-color: transparent; /* transparent track */
+        }
+      `}</style>
 
       {/* Logo Section */}
       <motion.div
