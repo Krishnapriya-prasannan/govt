@@ -55,7 +55,7 @@ const Hero = () => {
   }, [currentIndex]);
 
   return (
-    <section className="bg-white mt-[85px] sm:mt-[90px] md:mt-[100px] overflow-hidden lg:mb-16 relative h-screen"> 
+    <section className="bg-white mt-[85px] sm:mt-[90px] md:mt-[100px] overflow-hidden lg:mb-16 relative">
       {/* Slideshow */}
       <motion.div
         className="w-full overflow-hidden"
@@ -76,7 +76,7 @@ const Hero = () => {
           {images.map((image, index) => (
             <motion.div
               key={index}
-              className="flex-none w-full h-auto max-h-[calc(100vh-100px)] sm:max-h-[calc(100vh-120px)] object-cover"
+              className="flex-none w-full h-auto sm:h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] lg:h-full object-cover"
               style={{ scrollSnapAlign: "start" }}
               onClick={() => handleClick(index)}  // On click, manually change the image
             >

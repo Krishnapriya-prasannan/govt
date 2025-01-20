@@ -52,7 +52,7 @@ export function MissionVision() {
             <motion.img
               src={targetImage}
               alt="Target"
-              className="absolute top-[-10px] sm:top-[-20px] right-[-10px] sm:right-[-20px] w-28 sm:w-36 md:w-40 h-28 sm:h-36 md:h-40 object-contain"
+              className="absolute top-[-10px] sm:top-[-20px] right-[-10px] sm:right-[-20px] w-24 sm:w-40 md:w-36 h-24 sm:h-40 md:h-36 object-contain" // Increased size for mobile view
               variants={imgVariants}
             />
             <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold mt-8 sm:mt-6">
@@ -79,7 +79,7 @@ export function MissionVision() {
             <motion.img
               src={targetImage}
               alt="Target"
-              className="absolute top-[-10px] sm:top-[-20px] right-[-10px] sm:right-[-20px] w-28 sm:w-36 md:w-40 h-28 sm:h-36 md:h-40 object-contain"
+              className="absolute top-[-10px] sm:top-[-20px] right-[-10px] sm:right-[-20px] w-24 sm:w-40 md:w-36 h-24 sm:h-40 md:h-36 object-contain" // Increased size for mobile view
               variants={imgVariants}
             />
             <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold mt-8 sm:mt-6">
