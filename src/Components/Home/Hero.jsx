@@ -72,7 +72,7 @@ const Hero = () => {
 
       {/* Logo Section */}
       <motion.div
-        className="bg-white py-6 sm:py-8 mt-[30px]" // Added margin-top for spacing
+        className="bg-white py-6 sm:py-8 mt-[15px] mb-12" // Reduced mt-[30px] to mt-[15px] for less space
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 1.5 }}
@@ -90,7 +90,7 @@ const Hero = () => {
               },
             }}
           >
-            {logos.map((logo, index) => (
+            {logos.slice(0, 4).map((logo, index) => (
               <motion.div
                 key={index}
                 className="flex justify-center lg:mt-4"
@@ -102,6 +102,27 @@ const Hero = () => {
                 <img
                   src={logo}
                   alt={`Logo ${index}`}
+                  className="h-14 sm:h-16 md:h-20 lg:h-24 object-contain"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+          {/* Bottom Row of Logos */}
+          <motion.div
+            className="grid grid-cols-4 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-16" // Added mt-8 for space between rows
+          >
+            {logos.slice(4).map((logo, index) => (
+              <motion.div
+                key={index}
+                className="flex justify-center"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+              >
+                <img
+                  src={logo}
+                  alt={`Logo ${index + 4}`}
                   className="h-14 sm:h-16 md:h-20 lg:h-24 object-contain"
                 />
               </motion.div>
