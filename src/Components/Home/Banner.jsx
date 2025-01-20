@@ -4,7 +4,7 @@ import banner from "../../assets/drone.png";
 
 const SahkarBanner = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full mb-20 bg-white">
       <motion.h1
         className="text-3xl md:text-5xl lg:text-6xl font-bold text-orange-600 text-center p-4"
         initial={{ opacity: 0, y: -20 }}
