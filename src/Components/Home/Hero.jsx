@@ -12,12 +12,13 @@ import exp from "../../assets/30.png";
 import sr from "../../assets/m.webp";
 import pic5 from "../../assets/drone.webp";
 import pic3 from "../../assets/pic3.avif";
-
+import pic7 from "../../assets/fd.jpg";
+import plane from "../../assets/plane.jpg";
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideshowRef = useRef(null);
 
-  const images = [modijiImage, pic2, pic3, pic5];
+  const images = [modijiImage, pic2, pic3, pic5, pic7, plane];
   const logos = [bharat, exp, msme, zed, mca, sr, g20, qci];
 
   useEffect(() => {
