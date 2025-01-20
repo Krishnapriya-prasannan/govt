@@ -32,7 +32,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact-section"
-      className="relative w-full h-[600px] bg-cover top-0 bg-center"
+      className="relative w-full h-[600px] bg-cover bg-center mt-12" // Added mt-12 to create space above
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       {/* Glassy Shade */}
