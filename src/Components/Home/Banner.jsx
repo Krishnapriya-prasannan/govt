@@ -9,7 +9,7 @@ const SahkarBanner = () => {
         className="text-3xl md:text-5xl lg:text-6xl font-bold text-orange-600 text-center p-4"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}  
+        viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         सहकार से समृद्धि योजना
@@ -21,7 +21,7 @@ const SahkarBanner = () => {
         className="w-full h-auto"
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}  
+        viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
       />
     </div>

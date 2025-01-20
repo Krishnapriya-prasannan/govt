@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion"; 
 import modijiImage from "../../assets/modiji.jpg";
-import pic2 from "../../assets/pic2.jpg"; // New image for the slideshow
+import pic2 from "../../assets/pic3.webp";
 import msme from "../../assets/msme-logo.png";
 import g20 from "../../assets/G20.png";
 import zed from "../../assets/zed-logo.png";
@@ -10,80 +10,60 @@ import mca from "../../assets/mca.svg";
 import qci from "../../assets/Qci.png";
 import exp from "../../assets/30.png";
 import sr from "../../assets/m.webp";
+import pic5 from "../../assets/pic6.webp";
+import pic3 from "../../assets/pic3.avif";
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-  // Array of images for the slideshow
-  const images = [modijiImage, pic2];
-  const logos = [bharat, exp, msme, zed, mca, sr, g20, qci];
-
-  // Reference for the slideshow container
   const slideshowRef = useRef(null);
 
-  // Adjust animation speed based on screen size
-  const getAnimationDuration = () => {
-    if (window.innerWidth <= 640) return 1;
-    if (window.innerWidth <= 1024) return 1.2;
-    return 1.5;
-  };
+  const images = [modijiImage, pic2, pic3, pic5];
+  const logos = [bharat, exp, msme, zed, mca, sr, g20, qci];
 
-  const animationDuration = getAnimationDuration();
-
-  // Change the current image every 3 seconds (automatic slideshow)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
-
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, [images.length]);
 
-  // Handle manual scroll on click
-  const handleClick = (index) => {
-    setCurrentIndex(index);
-  };
-
   useEffect(() => {
-    // Scroll to the current image automatically
     if (slideshowRef.current) {
       slideshowRef.current.scrollTo({
-        left: currentIndex * window.innerWidth, // Scroll to the specific image
+        left: currentIndex * window.innerWidth,
         behavior: "smooth",
       });
     }
   }, [currentIndex]);
 
   return (
-    <section className="bg-white mt-[85px] sm:mt-[90px] md:mt-[100px] overflow-hidden lg:mb-16 relative h-auto mb-0 sm:mb-0">
+    <section className="bg-white mt-[85px] sm:mt-[90px] md:mt-[100px] overflow-hidden lg:mb-16 relative">
       {/* Slideshow */}
       <motion.div
-        className="w-full overflow-hidden"
+        className="w-full h-[30vh] sm:h-[60vh] md:h-[70vh] overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: animationDuration }}
+        transition={{ duration: 1.5 }}
       >
-        {/* Scrollable Container with Cute Custom Green Scrollbar */}
         <div
-          ref={slideshowRef} // Reference to scroll container
-          className="flex w-full h-full overflow-x-auto scroll-smooth"
+          ref={slideshowRef}
+          className="flex w-screen h-full overflow-x-auto scroll-smooth custom-scrollbar"
           style={{
             scrollSnapType: "x mandatory",
-            scrollbarWidth: "thin", // Mozilla Firefox custom scrollbar
-            scrollbarColor: "green transparent", // Custom scrollbar color for Firefox
+            scrollbarWidth: "thin",
           }}
         >
           {images.map((image, index) => (
             <motion.div
               key={index}
-              className="flex-none w-full h-auto max-h-[calc(100vh-100px)] sm:max-h-[calc(100vh-120px)] object-cover"
+              className="flex-none w-screen h-full"
               style={{ scrollSnapAlign: "start" }}
-              onClick={() => handleClick(index)}  // On click, manually change the image
+              onClick={() => setCurrentIndex(index)}
             >
               <img
                 src={image}
                 alt={`Slide ${index}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-fill"
               />
             </motion.div>
           ))}
@@ -92,10 +72,10 @@ const Hero = () => {
 
       {/* Logo Section */}
       <motion.div
-        className="bg-white py-4 sm:py-6"
+        className="bg-white py-6 sm:py-8 mt-[30px]" // Added margin-top for spacing
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: animationDuration }}
+        transition={{ delay: 0.5, duration: 1.5 }}
       >
         <div className="container mx-auto px-4">
           <motion.div
@@ -113,7 +93,7 @@ const Hero = () => {
             {logos.map((logo, index) => (
               <motion.div
                 key={index}
-                className="flex justify-center lg:mt-4"  // Added margin-top for desktop view
+                className="flex justify-center lg:mt-4"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 },
@@ -122,13 +102,46 @@ const Hero = () => {
                 <img
                   src={logo}
                   alt={`Logo ${index}`}
-                  className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain"
+                  className="h-14 sm:h-16 md:h-20 lg:h-24 object-contain"
                 />
               </motion.div>
             ))}
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Custom Green Scrollbar CSS */}
+      <style>
+        {`
+          /* Custom Green Scrollbar */
+          .custom-scrollbar::-webkit-scrollbar {
+            height: 12px; /* Increase the height of the scrollbar for visibility */
+          }
+          .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: green;
+            border-radius: 5px;
+          }
+          .custom-scrollbar {
+            scrollbar-color: green transparent;
+          }
+
+          /* Ensuring scrollbars appear on all devices */
+          .custom-scrollbar {
+            -webkit-overflow-scrolling: touch;
+            overflow-x: auto;
+          }
+
+          /* For mobile and small screens */
+          @media (max-width: 640px) {
+            .custom-scrollbar::-webkit-scrollbar {
+              height: 12px; /* Ensure the height is larger on mobile */
+            }
+          }
+        `}
+      </style>
     </section>
   );
 };
