@@ -24,7 +24,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden mb-0">
       <nav className="bg-[#FF9D23] text-white shadow-md fixed top-0 w-full z-50">
         <div className="container mx-auto max-w-screen-xl flex items-center justify-between px-4 py-4 md:py-5 w-full">
           {/* Logo Section */}
@@ -47,16 +47,42 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-4 lg:space-x-6 text-sm md:text-base font-semibold">
-            {["Home", "About", "Our Projects", "Gallery", "Service", "Contact"].map(
-              (item, index) => (
-                <li key={index} className="relative group">
-                  <a href="#" className="hover:text-gray-200 transition-colors duration-200">
-                    {item}
-                  </a>
-                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-                </li>
-              )
-            )}
+            <li className="relative group">
+              <a href="#" className="hover:text-gray-200 transition-colors duration-200">
+                Home
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </li>
+            <li className="relative group">
+              <a href="#" className="hover:text-gray-200 transition-colors duration-200">
+                About
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </li>
+            <li className="relative group">
+              <a href="#" className="hover:text-gray-200 transition-colors duration-200">
+                Our Projects
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </li>
+            <li className="relative group">
+              <a href="#" className="hover:text-gray-200 transition-colors duration-200">
+                Gallery
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </li>
+            <li className="relative group">
+              <a href="/service" className="hover:text-gray-200 transition-colors duration-200">
+                Service
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </li>
+            <li className="relative group">
+              <a href="/contact" className="hover:text-gray-200 transition-colors duration-200">
+                Contact
+              </a>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </li>
           </ul>
         </div>
 
@@ -78,16 +104,42 @@ const Navbar = () => {
         style={{ zIndex: 100 }}
       >
         <ul className="space-y-4 text-base font-semibold">
-          {["Home", "About", "Our Projects", "Gallery", "Service", "Contact"].map(
-            (item, index) => (
-              <li key={index} className="relative group">
-                <a href="#" className="block hover:text-gray-200 transition-colors duration-200">
-                  {item}
-                </a>
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-              </li>
-            )
-          )}
+          <li className="relative group">
+            <a href="#" className="block hover:text-gray-200 transition-colors duration-200">
+              Home
+            </a>
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="relative group">
+            <a href="#" className="block hover:text-gray-200 transition-colors duration-200">
+              About
+            </a>
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="relative group">
+            <a href="#" className="block hover:text-gray-200 transition-colors duration-200">
+              Our Projects
+            </a>
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="relative group">
+            <a href="#" className="block hover:text-gray-200 transition-colors duration-200">
+              Gallery
+            </a>
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="relative group">
+            <a href="/service" className="block hover:text-gray-200 transition-colors duration-200">
+              Service
+            </a>
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="relative group">
+            <a href="/contact" className="block hover:text-gray-200 transition-colors duration-200">
+              Contact
+            </a>
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
         </ul>
       </div>
     </div>
