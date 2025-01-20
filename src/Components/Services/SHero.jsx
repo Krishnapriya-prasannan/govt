@@ -10,8 +10,8 @@ import badgeExperience from "../../assets/30.png"; // Badge 4
 
 const ServiceBanner = () => {
   return (
-    <div className="bg-[#f9eede]">
-      <div className="max-w-7xl mx-auto py-10 px-6 relative">
+    <div className="bg-[#f9eede] w-full pt-[80px]"> {/* Added padding-top to account for navbar height */}
+      <div className="max-w-full mx-auto py-0 px-0 relative">
         {/* Main Content */}
         <div className="py-8 px-6 bg-[#003333] rounded-lg relative overflow-visible">
           {/* Top Section */}
@@ -37,7 +37,6 @@ const ServiceBanner = () => {
                 From consulting and strategy development to implementation and
                 support, our comprehensive services can help your business thrive.
               </motion.p>
-              {/* Call Now Button */}
               <motion.button
                 className="bg-[#d0261a] text-white font-bold py-3 px-6 md:px-8 rounded-md text-lg mb-6 lg:mb-0 transition-all duration-300 ease-in-out relative z-10"
                 whileHover={{
@@ -49,11 +48,10 @@ const ServiceBanner = () => {
                 Call Now
               </motion.button>
 
-              {/* Crow Images for Mobile */}
               <div className="flex lg:hidden justify-center items-center space-x-4">
                 <motion.img
                   src={birdImage}
-                  alt="Crow 1"
+                  alt="bird1"
                   className="w-16 h-16 max-w-full h-auto"
                   animate={{
                     y: ["-20px", "20px", "-20px"],
@@ -66,7 +64,7 @@ const ServiceBanner = () => {
                 />
                 <motion.img
                   src={birdImage}
-                  alt="Crow 2"
+                  alt="bird2"
                   className="w-12 h-12 max-w-full h-auto"
                   animate={{
                     y: ["-15px", "15px", "-15px"],
@@ -80,7 +78,7 @@ const ServiceBanner = () => {
               </div>
             </div>
 
-            {/* Right Section - Worker Image */}
+            {/* Right Section - Image */}
             <div className="lg:w-1/2 relative h-full flex justify-center items-end -bottom-[20px] overflow-hidden">
               <div className="relative h-full">
                 <img
@@ -92,11 +90,10 @@ const ServiceBanner = () => {
             </div>
           </div>
 
-          {/* Floating Crow Images for Desktop */}
           <div className="hidden lg:flex absolute top-4 left-80 space-x-16 pointer-events-none">
             <motion.img
               src={birdImage}
-              alt="Crow 1"
+              alt="bird1"
               className="w-24 h-24 max-w-full h-auto"
               animate={{
                 y: ["-30px", "30px", "-30px"],
@@ -109,7 +106,7 @@ const ServiceBanner = () => {
             />
             <motion.img
               src={birdImage}
-              alt="Crow 2"
+              alt="bird2"
               className="w-16 h-16 max-w-full h-auto"
               animate={{
                 y: ["-20px", "20px", "-20px"],
@@ -122,14 +119,13 @@ const ServiceBanner = () => {
             />
           </div>
 
-          {/* Static Cityline Images */}
           <div className="absolute bottom-[0px] left-0 w-full z-10 flex">
             <img src={cityLineImage} alt="Cityline 1" className="w-1/2" />
             <img src={cityLineImage} alt="Cityline 2" className="w-1/2" />
           </div>
         </div>
 
-        {/* Bottom Section - Badges */}
+        {/* Logo Badges */}
         <div className="flex justify-around items-center mt-16 flex-wrap gap-6">
           {[
             { src: badgeQuality, alt: "Best Quality" },
