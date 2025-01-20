@@ -55,7 +55,7 @@ const Hero = () => {
   }, [currentIndex]);
 
   return (
-    <section className="bg-white mt-[85px] sm:mt-[90px] md:mt-[100px] overflow-hidden lg:mb-16 relative">
+    <section className="bg-white mt-[85px] sm:mt-[90px] md:mt-[100px] overflow-hidden lg:mb-16 relative h-auto mb-0 sm:mb-0">
       {/* Slideshow */}
       <motion.div
         className="w-full overflow-hidden"
@@ -76,7 +76,7 @@ const Hero = () => {
           {images.map((image, index) => (
             <motion.div
               key={index}
-              className="flex-none w-full h-auto sm:h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] lg:h-full object-cover"
+              className="flex-none w-full h-auto max-h-[calc(100vh-100px)] sm:max-h-[calc(100vh-120px)] object-cover"
               style={{ scrollSnapAlign: "start" }}
               onClick={() => handleClick(index)}  // On click, manually change the image
             >
@@ -90,31 +90,16 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Custom Horizontal Scrollbar for Webkit Browsers (Chrome, Safari) */}
-      <style jsx>{`
-        /* Custom Scrollbar Styling */
-        .flex::-webkit-scrollbar {
-          height: 8px; /* height of the scrollbar */
-        }
-        .flex::-webkit-scrollbar-thumb {
-          background-color: green; /* green color for the scrollbar */
-          border-radius: 10px; /* round edges */
-        }
-        .flex::-webkit-scrollbar-track {
-          background-color: transparent; /* transparent track */
-        }
-      `}</style>
-
       {/* Logo Section */}
       <motion.div
-        className="bg-white py-6"
+        className="bg-white py-4 sm:py-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: animationDuration }}
       >
         <div className="container mx-auto px-4">
           <motion.div
-            className="grid grid-cols-4 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-10 lg:gap-20"
+            className="grid grid-cols-4 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
             initial="hidden"
             animate="visible"
             variants={{
@@ -128,7 +113,7 @@ const Hero = () => {
             {logos.map((logo, index) => (
               <motion.div
                 key={index}
-                className="flex justify-center"
+                className="flex justify-center lg:mt-4"  // Added margin-top for desktop view
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 },
@@ -137,7 +122,7 @@ const Hero = () => {
                 <img
                   src={logo}
                   alt={`Logo ${index}`}
-                  className="h-10 sm:h-20 md:h-24 lg:h-28 object-contain"
+                  className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain"
                 />
               </motion.div>
             ))}
