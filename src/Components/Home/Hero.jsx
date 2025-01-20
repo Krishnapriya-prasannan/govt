@@ -10,7 +10,7 @@ import mca from "../../assets/mca.svg";
 import qci from "../../assets/Qci.png";
 import exp from "../../assets/30.png";
 import sr from "../../assets/m.webp";
-import pic5 from "../../assets/pic6.webp";
+import pic5 from "../../assets/drone.webp";
 import pic3 from "../../assets/pic3.avif";
 
 const Hero = () => {
@@ -37,7 +37,7 @@ const Hero = () => {
   }, [currentIndex]);
 
   return (
-    <section className="bg-white mt-[85px] sm:mt-[90px] md:mt-[100px] overflow-hidden lg:mb-16 relative">
+    <section className="bg-white mt-[64px] sm:mt-[90px] md:mt-[88px] overflow-hidden lg:mb-16 relative">
       {/* Slideshow */}
       <motion.div
         className="w-full h-[30vh] sm:h-[60vh] md:h-[70vh] overflow-hidden"

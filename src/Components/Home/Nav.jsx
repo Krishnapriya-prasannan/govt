@@ -26,12 +26,12 @@ const Navbar = () => {
   return (
     <div className="w-full overflow-hidden mb-0">
       <nav className="bg-[#FF9D23] text-white shadow-md fixed top-0 w-full z-50">
-        <div className="container mx-auto px-4 py-4 md:py-5 w-full flex items-center justify-between max-w-screen-xl">
+        <div className="container mx-auto px-4 py-2 md:py-3 w-full flex items-center justify-between max-w-screen-xl">
           {/* Logo Section */}
           <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 ">
-            <img src={logo1} alt="Logo1" className="h-12 sm:h-14 md:h-16 lg:h-18" />
-            <div className="w-[2px] h-12 sm:h-14 md:h-16 lg:h-18 bg-white"></div>
-            <img src={logo2} alt="Logo2" className="h-14 sm:h-16 md:h-18 lg:h-20" />
+            <img src={logo1} alt="Logo1" className="h-10 sm:h-12 md:h-14 lg:h-16" />
+            <div className="w-[2px] h-10 sm:h-12 md:h-14 lg:h-16 bg-white"></div>
+            <img src={logo2} alt="Logo2" className="h-12 sm:h-14 md:h-16 lg:h-18" />
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,7 +98,7 @@ const Navbar = () => {
 
       {/* Mobile Menu (Final Fix) */}
       <div
-        className={`fixed top-20 left-0 right-0 w-full bg-[#FF8C00] text-white px-6 py-4 shadow-lg transform transition-all duration-300 ${
+        className={`fixed top-16 left-0 right-0 w-full bg-[#FF8C00] text-white px-6 py-4 shadow-lg transform transition-all duration-300 ${
           isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}
         style={{ zIndex: 100 }}

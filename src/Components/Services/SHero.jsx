@@ -10,10 +10,10 @@ import badgeExperience from "../../assets/30.png"; // Badge 4
 
 const ServiceBanner = () => {
   return (
-    <div className="bg-[#f9eede] w-full pt-[85px]"> {/* Added padding-top to account for navbar height */}
+    <div className="bg-[#f9eede] w-full pt-[64px] lg:pt-[88px]"> {/* Added padding-top to account for navbar height */}
       <div className="max-w-full mx-auto py-0 px-0 relative">
         {/* Main Content */}
-        <div className="py-8 px-6 bg-[#003333] rounded-lg relative overflow-visible">
+        <div className="py-8 px-6 bg-[#003333]  relative overflow-visible">
           {/* Top Section */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             {/* Left Section - Text */}
